@@ -1,0 +1,7 @@
+db:
+  host:     127.0.0.1
+  name:     shop_test
+  user:     admin
+  password: YourPassword
+  port:     3306
+  driver:   mysql

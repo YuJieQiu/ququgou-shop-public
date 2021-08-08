@@ -1,0 +1,45 @@
+db:
+  host:     127.0.0.1
+  name:     shop_test
+  user:     admin
+  password: YourPassword
+  port:     3306
+  driver:   mysql
+api:
+  name :    user web api
+  port :    :7001
+  relativepath: user/main/api
+  version: v1
+wx:
+  appid :     wxe0e073c7992c2856
+  appsecret:   b1a1ea949702527507b29c2f23f0e98c
+
+imgservice:
+  url:
+  savepath: static/images/
+  qiniuurl: http://store.citytask.cn/
+
+uploadconfigforimage:
+  path: static/images/
+  type: 2
+  hostaddress: host
+  limitsize: 100000000
+  limittypes: [".jpg",".png",".gif",".jpeg"]
+  qiniuconfigmodel:
+    accesskey: KQTgOWHalVHPQyEvb_pcVMTF4VrE3yeu2RTtd5F6
+    secretkey: 9WyCB79dX_4LnSxg5k18YDgCPIa4Yj2d7RFVS5DP
+cache:
+  enabled: true
+  redis:
+    host: 127.0.0.1:6379
+    password:
+    database:
+
+elastic:
+  host: http://127.0.0.1:9200
+  enabled: false
+
+wxmpapi:
+  enabled: true
+  url: http://127.0.0.1:8000/wechat/api/v1
+  templatesendurl: /template/sende

@@ -1,0 +1,37 @@
+db:
+  host:     127.0.0.1
+  name:     shop_test
+  user:     admin
+  password: YourPassword
+  port:     3306
+  driver:   mysql
+api:
+  name :    user_web main api
+  port :    :9000
+  relativepath: merchant/main/api/test
+  version: v1
+wx:
+  appid :     yourwxappid
+  appsecret:   yourwxappsecret
+
+imgservice:
+  url:
+  savepath: static/images/
+  qiniuurl: http://store.citytask.cn/
+
+uploadconfigforimage:
+  path: static/images/
+  type: 2
+  hostaddress: host
+  limitsize: 100000000
+  limittypes: [".jpg",".png",".gif",".jpeg"]
+  qiniuconfigmodel:
+    accesskey: KQTgOWHalVHPQyEvb_pcVMTF4VrE3yeu2RTtd5F6
+    secretkey: 9WyCB79dX_4LnSxg5k18YDgCPIa4Yj2d7RFVS5DP
+    bucket: my-storage-space
+cache:
+  enabled: true
+  redis:
+    host: 127.0.0.1:6379
+    password:
+    database:

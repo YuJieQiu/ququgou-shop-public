@@ -1,0 +1,3725 @@
+{
+    "schemes": [
+        "http",
+        "https"
+    ],
+    "swagger": "2.0",
+    "info": {
+        "description": "This is a swag test http server.",
+        "title": "USER WEB API",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+            "name": "API Support",
+            "url": "http://www.swagger.io/support",
+            "email": "support@swagger.io"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0"
+    },
+    "host": "localhost:7001",
+    "basePath": "/api/v1",
+    "paths": {
+        "/address/create": {
+            "post": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "创建用户收获地址",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "创建用户收获地址",
+                "parameters": [
+                    {
+                        "description": "body参数",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.Address"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok\" \"返回信息",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/controller.Response"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/model.Address"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "401": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/address/getList": {
+            "get": {
+                "description": "获取全部地址列表",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "获取全部地址列表",
+                "responses": {
+                    "200": {
+                        "description": "ok\" \"返回信息",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/controller.Response"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/model.Address"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "401": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/address/save": {
+            "post": {
+                "description": "保存用户收获地址",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "保存用户收获地址",
+                "parameters": [
+                    {
+                        "description": "body参数",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.Address"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok\" \"返回信息",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/controller.Response"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/model.Address"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "401": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/address/user/delete": {
+            "post": {
+                "description": "删除用户收获地址",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "删除用户收获地址",
+                "parameters": [
+                    {
+                        "description": "body参数",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/addressService.DeleteAddressModel"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok\" \"返回信息",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "400": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "401": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/address/user/first": {
+            "post": {
+                "description": "获取用户收获地址(默认第一个)",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "获取用户收获地址(默认第一个)",
+                "responses": {
+                    "200": {
+                        "description": "ok\" \"返回信息",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/controller.Response"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/model.Address"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "401": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/address/user/getList": {
+            "get": {
+                "description": "获取用户收获地址列表",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "获取用户收获地址列表",
+                "responses": {
+                    "200": {
+                        "description": "ok\" \"返回信息",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/controller.Response"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/definitions/model.Address"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "401": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/category/get/list": {
+            "get": {
+                "description": "获取商品分类列表",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "获取商品分类列表",
+                "parameters": [
+                    {
+                        "description": "body参数",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/productService.GetCategoryListModel"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok\" \"返回信息",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/controller.Response"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/definitions/model.Category"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "401": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/category/product/list": {
+            "get": {
+                "description": "描述",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "简单描述",
+                "parameters": [
+                    {
+                        "description": "body参数",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/productService.GetCategoryProductListModel"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok\" \"返回信息",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/controller.Response"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/definitions/productService.ProductSmallInfoModel"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "401": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/home/banner/getList": {
+            "get": {
+                "description": "获取首页Banner列表 (TODO：返回参数)",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "获取首页Banner列表",
+                "parameters": [
+                    {
+                        "description": "body参数",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/appConfigService.GetBannerListModel"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok\" \"返回信息",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "400": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "401": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/home/config/list": {
+            "get": {
+                "description": "app 配置比如首页分类相关等配置",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "获取app配置列表",
+                "parameters": [
+                    {
+                        "description": "body参数",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/appConfigService.GetAppConfigListModel"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok\" \"返回信息",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/controller.Response"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/controller.GetAppConfigListResponseModel"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "401": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/home/config/product/list": {
+            "get": {
+                "description": "获取首页配置产品信息列表",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "获取首页配置产品信息列表",
+                "parameters": [
+                    {
+                        "description": "body参数",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/appConfigService.GetHomeConfigProductInfoModel"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok\" \"返回信息",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/controller.Response"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/productService.ProductSmallInfoModel"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "401": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/home/productConfig/getList": {
+            "get": {
+                "description": "获取首页产品配置列表",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "获取首页产品配置列表",
+                "parameters": [
+                    {
+                        "description": "body参数",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/appConfigService.GetHomeProductConfigListModel"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok\" \"返回信息",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/controller.Response"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/definitions/model.HomeProductConfig"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "401": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/hot/search/get": {
+            "get": {
+                "description": "描述",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "简单描述",
+                "responses": {
+                    "200": {
+                        "description": "ok\" \"返回信息",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/controller.Response"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/definitions/controller.GetSearchHotListModel"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "401": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/mer/addresses": {
+            "post": {
+                "description": "获取商户地址信息",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "获取商户地址信息",
+                "parameters": [
+                    {
+                        "description": "body参数",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/merchantService.QueryMerchantAddressInfoListModel"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok\" \"返回信息",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/controller.Response"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/definitions/merchantService.MerchantAddressInfoModel"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "401": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/mer/list/search": {
+            "post": {
+                "description": "获取商户列表",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "获取商户列表",
+                "parameters": [
+                    {
+                        "description": "body参数",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/merchantService.GetMerchantListModel"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok\" \"返回信息",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/controller.Response"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/merchantService.MerchantListModel"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "401": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/mer/product/get/list": {
+            "get": {
+                "description": "获取商品列表",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "获取商品列表",
+                "parameters": [
+                    {
+                        "description": "body参数",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/controller.GetMerProductInfoListModel"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok\" \"返回信息",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/controller.Response"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/definitions/productService.ProductSmallInfoModel"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "401": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/mer/shopQRCode/get": {
+            "post": {
+                "description": "描述",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "获取商户店铺二维码",
+                "parameters": [
+                    {
+                        "description": "body参数",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/controller.GetMerchantShopQRCodeModel"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok\" \"返回信息",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/controller.Response"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/controller.GetMerchantShopQRCodeModel"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "401": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/merchant/get": {
+            "get": {
+                "description": "获取商户信息",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "获取商户信息",
+                "parameters": [
+                    {
+                        "description": "body参数",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/merchantService.GetMerchantInfoModel"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok\" \"返回信息",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/controller.Response"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/merchantService.MerInfoModel"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "401": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/order/befCreate": {
+            "post": {
+                "description": "(失效接口)",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "(失效接口)",
+                "parameters": [
+                    {
+                        "description": "body参数",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/orderService.GetBeforeOrderCreateInfoModel"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok\" \"返回信息",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/controller.Response"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/orderService.BefOrderInfo"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "401": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/order/cancel": {
+            "post": {
+                "description": "根据订单号取消订单 TODO: 逻辑待补充",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "取消订单",
+                "parameters": [
+                    {
+                        "description": "body参数",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/orderService.CancelUserOrderModel"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok\" \"返回信息",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "400": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "401": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/order/create": {
+            "post": {
+                "description": "创建用户订单",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "创建用户订单",
+                "parameters": [
+                    {
+                        "description": "body参数",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/orderService.CreateOrderInfoModel"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok\" \"返回信息",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "400": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "401": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/order/get/detail": {
+            "get": {
+                "description": "脚本自动执行",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "超时未支付订单取消",
+                "responses": {
+                    "200": {
+                        "description": "ok\" \"返回信息",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "400": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "401": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/order/get/list": {
+            "get": {
+                "description": "获取用户订单列表",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "获取用户订单列表",
+                "parameters": [
+                    {
+                        "description": "body参数",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/orderService.GetOrderSmallInfoListModel"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok\" \"返回信息",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/controller.Response"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/definitions/orderService.SmallOrderInfModel"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "401": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/order/pay": {
+            "post": {
+                "description": "这个步骤在创建订单以后，订单支付 成功后会返回数据到微信小程序，",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "订单支付",
+                "parameters": [
+                    {
+                        "description": "body参数",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/orderService.UserOrderPayModel"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok\" \"返回信息",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "400": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "401": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/product/search": {
+            "post": {
+                "description": "描述",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "简单描述",
+                "parameters": [
+                    {
+                        "description": "body参数",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/productService.GetSearchProductListModel"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok\" \"返回信息",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "400": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "401": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/recommend/product/list": {
+            "post": {
+                "description": "推荐基本逻辑",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "推荐商品列表",
+                "parameters": [
+                    {
+                        "description": "body参数",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/searchService.QueryRecommendProductListModel"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok\" \"返回信息",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/controller.Response"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/definitions/productService.ProductSmallInfoModel"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "401": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/resource/uploadFiles": {
+            "post": {
+                "description": "上传文件资源 支持 图片和视频 资源",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "上传文件资源 支持 图片和视频 资源",
+                "parameters": [
+                    {
+                        "type": "file",
+                        "description": "array files",
+                        "name": "file",
+                        "in": "formData",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok\" \"返回信息",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/controller.Response"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/definitions/model.Resource"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "401": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/search/get": {
+            "get": {
+                "description": "ES搜索产品获取",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "ES搜索产品获取",
+                "parameters": [
+                    {
+                        "description": "body参数",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/controller.TestProductGetModel"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok\" \"返回信息",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "400": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "401": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/search/query": {
+            "get": {
+                "description": "ES产品查询",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "ES产品查询",
+                "parameters": [
+                    {
+                        "description": "body参数",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/controller.TestProductQueryModel"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok\" \"返回信息",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "400": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "401": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/search/sync": {
+            "get": {
+                "description": "描述",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "搜索产品同步",
+                "responses": {
+                    "200": {
+                        "description": "ok\" \"返回信息",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "400": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "401": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/shop/cart/add": {
+            "post": {
+                "description": "商品添加购物车",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "商品添加购物车",
+                "parameters": [
+                    {
+                        "description": "body参数",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/shopCartService.AddShopCartItemModel"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok\" \"返回信息",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "400": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "401": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/shop/cart/get": {
+            "get": {
+                "description": "获取购物车商品信息",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "获取购物车商品信息",
+                "parameters": [
+                    {
+                        "description": "body参数",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/shopCartService.GetUserShopCartProductInfoModel"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok\" \"返回信息",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/controller.Response"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/definitions/shopCartService.UserShopCartMerModel"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "401": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/shop/cart/remove": {
+            "post": {
+                "description": "购物车商品删除",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "购物车商品删除",
+                "parameters": [
+                    {
+                        "description": "body参数",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/shopCartService.DeleteShopCartModel"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok\" \"返回信息",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "400": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "401": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/shop/collection/add": {
+            "post": {
+                "description": "收藏商品",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "收藏商品",
+                "parameters": [
+                    {
+                        "description": "body参数",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/productService.UserProductCollectionAddModel"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok\" \"返回信息",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "400": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "401": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/shop/collection/get": {
+            "get": {
+                "description": "获取用户收藏商品列表",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "获取用户收藏商品列表",
+                "parameters": [
+                    {
+                        "description": "body参数",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/productService.GetUserProductCollectionListModel"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok\" \"返回信息",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/controller.Response"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/definitions/productService.ProductSmallInfoModel"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "401": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/shop/collection/remove": {
+            "post": {
+                "description": "删除收藏商品",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "删除收藏商品",
+                "parameters": [
+                    {
+                        "description": "body参数",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/productService.UserProductCollectionRemoveModel"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok\" \"返回信息",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "400": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "401": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/shop/payment/type/list": {
+            "post": {
+                "description": "描述",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "简单描述",
+                "parameters": [
+                    {
+                        "description": "body参数",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/paymentService.GetPaymentTypeListModel"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok\" \"返回信息",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "400": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "401": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/shop/product/detail": {
+            "get": {
+                "description": "获取 单个商品详情 商品详细信息",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "获取 单个商品详情 商品详细信息",
+                "parameters": [
+                    {
+                        "description": "body参数",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/productService.GetProductDetailInfoSingleModel"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok\" \"返回信息",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/controller.Response"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/productService.ProductDetailInfoSingle"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "401": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/shop/product/info/getList": {
+            "get": {
+                "description": "用户商品列表展示使用",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "获取商品信息列表",
+                "parameters": [
+                    {
+                        "description": "body参数",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/productService.GetProductSmallInfoListModel"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok\" \"返回信息",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/controller.Response"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/definitions/productService.ProductSmallInfoModel"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "401": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/shop/product/payment/type/list": {
+            "get": {
+                "description": "获取商品支付方式",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "获取商品支付方式",
+                "parameters": [
+                    {
+                        "description": "body参数",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/productService.GetProductPaymentTypeListModel"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok\" \"返回信息",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "400": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "401": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/center/get": {
+            "get": {
+                "description": "获取用户个人中心信息",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "获取用户个人中心信息",
+                "responses": {
+                    "200": {
+                        "description": "ok\" \"返回信息",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/controller.Response"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/controller.UserCenterInfoModel"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "401": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/person/login": {
+            "post": {
+                "description": "微信登陆",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "微信登陆",
+                "parameters": [
+                    {
+                        "description": "body参数",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/controller.LoginRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok\" \"返回信息",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/controller.Response"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/model.User"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "401": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/wechat/getHomeData": {
+            "get": {
+                "description": "待确定",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "获取首页 hometba 配置",
+                "responses": {
+                    "200": {
+                        "description": "ok\" \"返回信息",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/controller.Response"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/definitions/model.AppConfig"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "401": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "错误",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Response"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "addressService.DeleteAddressModel": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "userId": {
+                    "type": "integer"
+                }
+            }
+        },
+        "addressService.GetAddressModel": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "userId": {
+                    "type": "integer"
+                }
+            }
+        },
+        "appConfigService.GetAppConfigListModel": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                }
+            }
+        },
+        "appConfigService.GetBannerListModel": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "appConfigService.GetHomeConfigProductInfoModel": {
+            "type": "object",
+            "properties": {
+                "appConfigId": {
+                    "type": "integer"
+                }
+            }
+        },
+        "appConfigService.GetHomeProductConfigListModel": {
+            "type": "object",
+            "properties": {
+                "appConfigId": {
+                    "type": "integer"
+                }
+            }
+        },
+        "controller.AttrArrModel": {
+            "type": "object",
+            "properties": {
+                "attrSelectItemIndex": {
+                    "type": "integer"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "isActive": {
+                    "type": "boolean"
+                },
+                "isItemActive": {
+                    "type": "boolean"
+                },
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/controller.AttrArrModel"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "selected": {
+                    "type": "boolean"
+                },
+                "selectedName": {
+                    "type": "string"
+                }
+            }
+        },
+        "controller.GetAppConfigListResponseModel": {
+            "type": "object",
+            "properties": {
+                "list": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "array",
+                        "items": {
+                            "type": "object"
+                        }
+                    }
+                },
+                "textList": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "controller.GetMerProductInfoListModel": {
+            "type": "object",
+            "properties": {
+                "merCode": {
+                    "type": "string"
+                },
+                "merId": {
+                    "type": "integer"
+                }
+            }
+        },
+        "controller.GetMerchantShopQRCodeModel": {
+            "type": "object",
+            "properties": {
+                "merCode": {
+                    "type": "string"
+                },
+                "merId": {
+                    "type": "integer"
+                }
+            }
+        },
+        "controller.GetProductSearchPageConfigDataModel": {
+            "type": "object",
+            "properties": {
+                "categoryId": {
+                    "description": "分类Id",
+                    "type": "integer"
+                },
+                "lat": {
+                    "description": "维度",
+                    "type": "number"
+                },
+                "lon": {
+                    "description": "经度",
+                    "type": "number"
+                },
+                "searchKey": {
+                    "description": "搜索key",
+                    "type": "string"
+                }
+            }
+        },
+        "controller.GetSearchHotListModel": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "text": {
+                    "type": "string"
+                }
+            }
+        },
+        "controller.LoginRequest": {
+            "type": "object",
+            "properties": {
+                "avatarUrl": {
+                    "type": "string"
+                },
+                "city": {
+                    "type": "string"
+                },
+                "code": {
+                    "type": "string"
+                },
+                "country": {
+                    "type": "string"
+                },
+                "encryptedData": {
+                    "type": "string"
+                },
+                "gender": {
+                    "type": "integer"
+                },
+                "iv": {
+                    "type": "string"
+                },
+                "language": {
+                    "type": "string"
+                },
+                "nickName": {
+                    "type": "string"
+                },
+                "province": {
+                    "type": "string"
+                },
+                "rawData": {
+                    "type": "string"
+                },
+                "signature": {
+                    "type": "string"
+                }
+            }
+        },
+        "controller.ProductSearchPageConfigDataModel": {
+            "type": "object",
+            "properties": {
+                "attrArr": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/controller.AttrArrModel"
+                    }
+                }
+            }
+        },
+        "controller.Response": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "type": "object"
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "controller.TestProductGetModel": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                }
+            }
+        },
+        "controller.TestProductQueryModel": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "text": {
+                    "type": "string"
+                }
+            }
+        },
+        "controller.UserCenterInfoModel": {
+            "type": "object",
+            "properties": {
+                "orderWaitCount": {
+                    "description": "待完成订单",
+                    "type": "integer"
+                },
+                "orderWaitPayCount": {
+                    "description": "待支付订单",
+                    "type": "integer"
+                },
+                "productCollectionCount": {
+                    "description": "收藏商品",
+                    "type": "integer"
+                }
+            }
+        },
+        "merchantService.GetMerchantInfoModel": {
+            "type": "object",
+            "properties": {
+                "isWhereUserId": {
+                    "type": "boolean"
+                },
+                "merCode": {
+                    "type": "string"
+                },
+                "merId": {
+                    "type": "integer"
+                }
+            }
+        },
+        "merchantService.GetMerchantListModel": {
+            "type": "object",
+            "properties": {
+                "computeDistance": {
+                    "type": "boolean"
+                },
+                "distance": {
+                    "type": "integer"
+                },
+                "lat": {
+                    "type": "number"
+                },
+                "lon": {
+                    "type": "number"
+                },
+                "sortType": {
+                    "type": "integer"
+                },
+                "text": {
+                    "type": "string"
+                }
+            }
+        },
+        "merchantService.MerInfoModel": {
+            "type": "object",
+            "required": [
+                "resources"
+            ],
+            "properties": {
+                "activeComment": {
+                    "type": "boolean"
+                },
+                "activeGoods": {
+                    "type": "boolean"
+                },
+                "activeService": {
+                    "type": "boolean"
+                },
+                "address": {
+                    "type": "MerAddressModel"
+                },
+                "businessTime": {
+                    "type": "MerBusinessTime"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "label": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "logo": {
+                    "type": "MerResourceModel"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "phones": {
+                    "type": "string"
+                },
+                "resources": {
+                    "type": "array",
+                    "items": {
+                        "type": "MerResourceModel"
+                    }
+                },
+                "typeId": {
+                    "type": "integer"
+                }
+            }
+        },
+        "merchantService.MerchantAddressInfoModel": {
+            "type": "object",
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "merId": {
+                    "type": "integer"
+                },
+                "merName": {
+                    "type": "string"
+                },
+                "phones": {
+                    "type": "string"
+                }
+            }
+        },
+        "merchantService.MerchantListModel": {
+            "type": "object",
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "distance": {
+                    "type": "number"
+                },
+                "image": {
+                    "type": "string"
+                },
+                "latitude": {
+                    "type": "number"
+                },
+                "longitude": {
+                    "type": "number"
+                },
+                "merId": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "merchantService.QueryMerchantAddressInfoListModel": {
+            "type": "object",
+            "properties": {
+                "merIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                }
+            }
+        },
+        "model.Address": {
+            "type": "object",
+            "properties": {
+                "active": {
+                    "type": "boolean"
+                },
+                "address": {
+                    "type": "string"
+                },
+                "city": {
+                    "type": "string"
+                },
+                "is_default": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "phone": {
+                    "type": "string"
+                },
+                "region": {
+                    "type": "string"
+                },
+                "remark": {
+                    "type": "string"
+                },
+                "town": {
+                    "type": "string"
+                },
+                "user_id": {
+                    "type": "integer"
+                }
+            }
+        },
+        "model.AppConfig": {
+            "type": "object",
+            "properties": {
+                "categoryId": {
+                    "type": "integer"
+                },
+                "code": {
+                    "type": "string"
+                },
+                "configType": {
+                    "type": "integer"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "linkType": {
+                    "type": "integer"
+                },
+                "linkUrl": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "productSmallInfos": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/productService.ProductSmallInfoModel"
+                    }
+                },
+                "resourceId": {
+                    "type": "integer"
+                },
+                "sort": {
+                    "type": "integer"
+                },
+                "status": {
+                    "type": "integer"
+                },
+                "text": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                }
+            }
+        },
+        "model.Category": {
+            "type": "object",
+            "properties": {
+                "child": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/model.Category"
+                    }
+                },
+                "isSystem": {
+                    "type": "boolean"
+                },
+                "merId": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "pid": {
+                    "type": "integer"
+                },
+                "remark": {
+                    "type": "string"
+                },
+                "resourceId": {
+                    "type": "integer"
+                },
+                "sort": {
+                    "type": "integer"
+                },
+                "status": {
+                    "type": "integer"
+                }
+            }
+        },
+        "model.HomeProductConfig": {
+            "type": "object",
+            "properties": {
+                "appConfigId": {
+                    "type": "integer"
+                },
+                "productId": {
+                    "type": "integer"
+                }
+            }
+        },
+        "model.Resource": {
+            "type": "object",
+            "properties": {
+                "contentType": {
+                    "type": "string"
+                },
+                "ext": {
+                    "type": "string"
+                },
+                "fileName": {
+                    "type": "string"
+                },
+                "guid": {
+                    "type": "string"
+                },
+                "hashCode": {
+                    "type": "string"
+                },
+                "hosted": {
+                    "type": "string"
+                },
+                "iconUrl": {
+                    "type": "string"
+                },
+                "linkPoint": {
+                    "type": "string"
+                },
+                "merId": {
+                    "type": "integer"
+                },
+                "path": {
+                    "type": "string"
+                },
+                "size": {
+                    "type": "integer"
+                },
+                "thumbUrl": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "integer"
+                },
+                "url": {
+                    "type": "string"
+                },
+                "userId": {
+                    "type": "integer"
+                }
+            }
+        },
+        "model.User": {
+            "type": "object",
+            "properties": {
+                "appKey": {
+                    "type": "string"
+                },
+                "avatarUrl": {
+                    "type": "string"
+                },
+                "gender": {
+                    "type": "integer"
+                },
+                "guid": {
+                    "type": "string"
+                },
+                "mobile": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "integer"
+                },
+                "type": {
+                    "type": "integer"
+                },
+                "userName": {
+                    "type": "string"
+                },
+                "wechatOpenId": {
+                    "type": "string"
+                }
+            }
+        },
+        "orderService.BefOrderInfo": {
+            "type": "object",
+            "properties": {
+                "freeDeliveryFee": {
+                    "type": "boolean"
+                },
+                "merchants": {
+                    "type": "array",
+                    "items": {
+                        "type": "BefOrderMerchantInfo"
+                    }
+                }
+            }
+        },
+        "orderService.CancelUserOrderModel": {
+            "type": "object",
+            "properties": {
+                "orderNo": {
+                    "type": "string"
+                }
+            }
+        },
+        "orderService.CreateOrderInfoModel": {
+            "type": "object",
+            "required": [
+                "deliveryTypeId",
+                "orderAmountTotal",
+                "paymentTypeId",
+                "productAmountTotal",
+                "products"
+            ],
+            "properties": {
+                "addressId": {
+                    "type": "integer"
+                },
+                "deliveryFee": {
+                    "type": "number"
+                },
+                "deliveryTypeId": {
+                    "type": "integer"
+                },
+                "discounts": {
+                    "type": "array",
+                    "items": {
+                        "type": "CreateOrderDiscountsModel"
+                    }
+                },
+                "discountsAmountTotal": {
+                    "type": "number"
+                },
+                "orderAmountTotal": {
+                    "type": "number"
+                },
+                "paymentTypeId": {
+                    "type": "integer"
+                },
+                "productAmountTotal": {
+                    "type": "number"
+                },
+                "products": {
+                    "type": "array",
+                    "items": {
+                        "type": "CreateOrderProductModel"
+                    }
+                },
+                "remark": {
+                    "type": "string"
+                }
+            }
+        },
+        "orderService.GetBeforeOrderCreateInfoModel": {
+            "type": "object",
+            "required": [
+                "products"
+            ],
+            "properties": {
+                "products": {
+                    "type": "array",
+                    "items": {
+                        "type": "CreateOrderProductModel"
+                    }
+                }
+            }
+        },
+        "orderService.GetOrderSmallInfoListModel": {
+            "type": "object",
+            "properties": {
+                "all": {
+                    "type": "boolean"
+                },
+                "businessStatus": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "displayStatus": {
+                    "type": "integer"
+                },
+                "merId": {
+                    "type": "integer"
+                },
+                "orderNo": {
+                    "type": "string"
+                },
+                "userId": {
+                    "type": "integer"
+                }
+            }
+        },
+        "orderService.GetUserOrderDetailModel": {
+            "type": "object",
+            "properties": {
+                "merId": {
+                    "type": "integer"
+                },
+                "orderNo": {
+                    "type": "string"
+                }
+            }
+        },
+        "orderService.SmallOrderInfModel": {
+            "type": "object",
+            "properties": {
+                "_": {
+                    "type": "integer"
+                },
+                "createdTime": {
+                    "type": "string"
+                },
+                "merId": {
+                    "type": "integer"
+                },
+                "merName": {
+                    "type": "string"
+                },
+                "no": {
+                    "type": "string"
+                },
+                "orderAmountTotal": {
+                    "type": "number"
+                },
+                "products": {
+                    "type": "array",
+                    "items": {
+                        "type": "SmallOrderInfoProductModel"
+                    }
+                },
+                "status": {
+                    "type": "string"
+                },
+                "statusText": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "integer"
+                }
+            }
+        },
+        "orderService.UserOrderDetailModel": {
+            "type": "object",
+            "properties": {
+                "address": {
+                    "type": "UserOrderAddressModel"
+                },
+                "cancelTime": {
+                    "type": "string"
+                },
+                "createdTime": {
+                    "type": "string"
+                },
+                "deliveryType": {
+                    "type": "integer"
+                },
+                "discountsAmountTotal": {
+                    "type": "number"
+                },
+                "merId": {
+                    "type": "integer"
+                },
+                "merName": {
+                    "type": "string"
+                },
+                "no": {
+                    "type": "string"
+                },
+                "orderAmountTotal": {
+                    "type": "number"
+                },
+                "originalAmountTotal": {
+                    "type": "number"
+                },
+                "payTypeText": {
+                    "type": "string"
+                },
+                "paymentTime": {
+                    "type": "string"
+                },
+                "products": {
+                    "type": "array",
+                    "items": {
+                        "type": "SmallOrderInfoProductModel"
+                    }
+                },
+                "remark": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "statusText": {
+                    "type": "string"
+                }
+            }
+        },
+        "orderService.UserOrderPayModel": {
+            "type": "object",
+            "properties": {
+                "orderId": {
+                    "type": "integer"
+                },
+                "orderMasterId": {
+                    "type": "integer"
+                },
+                "orderMasterNo": {
+                    "type": "string"
+                },
+                "orderNo": {
+                    "type": "string"
+                },
+                "userId": {
+                    "type": "integer"
+                }
+            }
+        },
+        "paymentService.GetPaymentTypeListModel": {
+            "type": "object",
+            "properties": {
+                "merId": {
+                    "type": "integer"
+                }
+            }
+        },
+        "productService.GetCategoryListModel": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "isSystem": {
+                    "type": "boolean"
+                },
+                "merId": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "pid": {
+                    "type": "integer"
+                },
+                "status": {
+                    "type": "integer"
+                }
+            }
+        },
+        "productService.GetCategoryProductListModel": {
+            "type": "object",
+            "properties": {
+                "categoryId": {
+                    "type": "integer"
+                },
+                "distance": {
+                    "type": "integer"
+                },
+                "lat": {
+                    "type": "number"
+                },
+                "lon": {
+                    "type": "number"
+                },
+                "order": {
+                    "type": "integer"
+                }
+            }
+        },
+        "productService.GetProductDetailInfoSingleModel": {
+            "type": "object",
+            "properties": {
+                "guid": {
+                    "type": "string"
+                },
+                "userId": {
+                    "type": "integer"
+                }
+            }
+        },
+        "productService.GetProductPaymentTypeListModel": {
+            "type": "object",
+            "properties": {
+                "productId": {
+                    "type": "integer"
+                },
+                "userId": {
+                    "type": "integer"
+                }
+            }
+        },
+        "productService.GetProductSmallInfoListModel": {
+            "type": "object",
+            "properties": {
+                "categoryId": {
+                    "type": "integer"
+                },
+                "computeDistance": {
+                    "type": "boolean"
+                },
+                "lat": {
+                    "type": "number"
+                },
+                "lon": {
+                    "type": "number"
+                },
+                "merId": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "productIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "type": {
+                    "type": "integer"
+                }
+            }
+        },
+        "productService.GetSearchProductListModel": {
+            "type": "object",
+            "properties": {
+                "categoryId": {
+                    "type": "integer"
+                },
+                "distance": {
+                    "type": "integer"
+                },
+                "lat": {
+                    "type": "number"
+                },
+                "lon": {
+                    "type": "number"
+                },
+                "merId": {
+                    "type": "integer"
+                },
+                "sortType": {
+                    "type": "integer"
+                },
+                "text": {
+                    "type": "string"
+                }
+            }
+        },
+        "productService.GetUserProductCollectionListModel": {
+            "type": "object",
+            "properties": {
+                "lat": {
+                    "type": "number"
+                },
+                "lon": {
+                    "type": "number"
+                },
+                "userId": {
+                    "type": "integer"
+                }
+            }
+        },
+        "productService.ProductDetailInfoSingle": {
+            "type": "object",
+            "properties": {
+                "attributes": {
+                    "type": "array",
+                    "items": {
+                        "type": "ProductAttributeModel"
+                    }
+                },
+                "brand": {
+                    "type": "object"
+                },
+                "brandId": {
+                    "type": "integer"
+                },
+                "collected": {
+                    "type": "boolean"
+                },
+                "content": {
+                    "type": "string"
+                },
+                "currentPrice": {
+                    "type": "number"
+                },
+                "deliveryTypes": {
+                    "type": "array",
+                    "items": {
+                        "type": "ProductDeliveryTypeModel"
+                    }
+                },
+                "description": {
+                    "type": "string"
+                },
+                "guid": {
+                    "type": "string"
+                },
+                "image": {
+                    "type": "string"
+                },
+                "isSingle": {
+                    "type": "boolean"
+                },
+                "keywords": {
+                    "type": "string"
+                },
+                "maxPrice": {
+                    "type": "number"
+                },
+                "merCode": {
+                    "type": "string"
+                },
+                "merId": {
+                    "type": "integer"
+                },
+                "merInfo": {
+                    "type": "object"
+                },
+                "merName": {
+                    "type": "string"
+                },
+                "minPrice": {
+                    "type": "number"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "originalPrice": {
+                    "type": "number"
+                },
+                "resources": {
+                    "type": "array",
+                    "items": {
+                        "type": "ProductResourceModel"
+                    }
+                },
+                "sales": {
+                    "type": "integer"
+                },
+                "skuInfo": {
+                    "type": "array",
+                    "items": {
+                        "type": "ProductSKUDetailModel"
+                    }
+                },
+                "status": {
+                    "type": "integer"
+                },
+                "statusText": {
+                    "type": "string"
+                },
+                "stock": {
+                    "type": "integer"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "ProductTagsModel"
+                    }
+                },
+                "typeId": {
+                    "type": "integer"
+                },
+                "typeName": {
+                    "type": "string"
+                }
+            }
+        },
+        "productService.ProductSmallInfoModel": {
+            "type": "object",
+            "properties": {
+                "brand": {
+                    "type": "object"
+                },
+                "brandId": {
+                    "type": "integer"
+                },
+                "currentPrice": {
+                    "type": "number"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "distance": {
+                    "type": "number"
+                },
+                "guid": {
+                    "type": "string"
+                },
+                "image": {
+                    "type": "string"
+                },
+                "keywords": {
+                    "type": "string"
+                },
+                "latitude": {
+                    "type": "number"
+                },
+                "longitude": {
+                    "type": "number"
+                },
+                "maxPrice": {
+                    "type": "number"
+                },
+                "merId": {
+                    "type": "integer"
+                },
+                "merName": {
+                    "type": "string"
+                },
+                "minPrice": {
+                    "type": "number"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "originalPrice": {
+                    "type": "number"
+                },
+                "productType": {
+                    "type": "integer"
+                },
+                "sales": {
+                    "type": "integer"
+                },
+                "stock": {
+                    "type": "integer"
+                },
+                "tags": {
+                    "type": "string"
+                },
+                "typeId": {
+                    "type": "integer"
+                }
+            }
+        },
+        "productService.UserProductCollectionAddModel": {
+            "type": "object",
+            "properties": {
+                "productCode": {
+                    "type": "string"
+                },
+                "userId": {
+                    "type": "integer"
+                }
+            }
+        },
+        "productService.UserProductCollectionRemoveModel": {
+            "type": "object",
+            "properties": {
+                "productCode": {
+                    "type": "string"
+                },
+                "userId": {
+                    "type": "integer"
+                }
+            }
+        },
+        "searchService.QueryRecommendProductListModel": {
+            "type": "object",
+            "properties": {
+                "categoryId": {
+                    "type": "integer"
+                },
+                "lat": {
+                    "type": "number"
+                },
+                "lon": {
+                    "type": "number"
+                },
+                "searchKey": {
+                    "type": "string"
+                },
+                "source": {
+                    "type": "integer"
+                },
+                "type": {
+                    "type": "integer"
+                },
+                "userId": {
+                    "type": "integer"
+                }
+            }
+        },
+        "shopCartService.AddShopCartItemModel": {
+            "type": "object",
+            "properties": {
+                "merId": {
+                    "type": "integer"
+                },
+                "number": {
+                    "type": "integer"
+                },
+                "price": {
+                    "type": "number"
+                },
+                "productNo": {
+                    "type": "string"
+                },
+                "productSkuId": {
+                    "type": "integer"
+                },
+                "totalPrice": {
+                    "type": "number"
+                },
+                "userId": {
+                    "type": "integer"
+                }
+            }
+        },
+        "shopCartService.DeleteShopCartModel": {
+            "type": "object",
+            "properties": {
+                "ids": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "merId": {
+                    "type": "integer"
+                },
+                "userId": {
+                    "type": "integer"
+                }
+            }
+        },
+        "shopCartService.GetUserShopCartProductInfoModel": {
+            "type": "object",
+            "properties": {
+                "userId": {
+                    "type": "integer"
+                }
+            }
+        },
+        "shopCartService.UserShopCartMerModel": {
+            "type": "object",
+            "properties": {
+                "invalidProducts": {
+                    "type": "array",
+                    "items": {
+                        "type": "UserShopCartProductModel"
+                    }
+                },
+                "merCode": {
+                    "type": "string"
+                },
+                "merId": {
+                    "type": "integer"
+                },
+                "merName": {
+                    "type": "string"
+                },
+                "products": {
+                    "type": "array",
+                    "items": {
+                        "type": "UserShopCartProductModel"
+                    }
+                }
+            }
+        }
+    },
+    "securityDefinitions": {
+        "ApiKeyAuth": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header"
+        }
+    },
+    "x-example-key": {
+        "key": "value"
+    }
+}

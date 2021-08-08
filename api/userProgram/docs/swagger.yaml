@@ -1,0 +1,2362 @@
+basePath: /api/v1
+definitions:
+  addressService.DeleteAddressModel:
+    properties:
+      id:
+        type: integer
+      userId:
+        type: integer
+    type: object
+  addressService.GetAddressModel:
+    properties:
+      id:
+        type: integer
+      userId:
+        type: integer
+    type: object
+  appConfigService.GetAppConfigListModel:
+    properties:
+      name:
+        type: string
+      type:
+        type: string
+    type: object
+  appConfigService.GetBannerListModel:
+    properties:
+      name:
+        type: string
+    type: object
+  appConfigService.GetHomeConfigProductInfoModel:
+    properties:
+      appConfigId:
+        type: integer
+    type: object
+  appConfigService.GetHomeProductConfigListModel:
+    properties:
+      appConfigId:
+        type: integer
+    type: object
+  controller.AttrArrModel:
+    properties:
+      attrSelectItemIndex:
+        type: integer
+      id:
+        type: integer
+      isActive:
+        type: boolean
+      isItemActive:
+        type: boolean
+      list:
+        items:
+          $ref: '#/definitions/controller.AttrArrModel'
+        type: array
+      name:
+        type: string
+      selected:
+        type: boolean
+      selectedName:
+        type: string
+    type: object
+  controller.GetAppConfigListResponseModel:
+    properties:
+      list:
+        additionalProperties:
+          items:
+            type: object
+          type: array
+        type: object
+      textList:
+        additionalProperties:
+          type: string
+        type: object
+    type: object
+  controller.GetMerProductInfoListModel:
+    properties:
+      merCode:
+        type: string
+      merId:
+        type: integer
+    type: object
+  controller.GetMerchantShopQRCodeModel:
+    properties:
+      merCode:
+        type: string
+      merId:
+        type: integer
+    type: object
+  controller.GetProductSearchPageConfigDataModel:
+    properties:
+      categoryId:
+        description: 分类Id
+        type: integer
+      lat:
+        description: 维度
+        type: number
+      lon:
+        description: 经度
+        type: number
+      searchKey:
+        description: 搜索key
+        type: string
+    type: object
+  controller.GetSearchHotListModel:
+    properties:
+      id:
+        type: integer
+      text:
+        type: string
+    type: object
+  controller.LoginRequest:
+    properties:
+      avatarUrl:
+        type: string
+      city:
+        type: string
+      code:
+        type: string
+      country:
+        type: string
+      encryptedData:
+        type: string
+      gender:
+        type: integer
+      iv:
+        type: string
+      language:
+        type: string
+      nickName:
+        type: string
+      province:
+        type: string
+      rawData:
+        type: string
+      signature:
+        type: string
+    type: object
+  controller.ProductSearchPageConfigDataModel:
+    properties:
+      attrArr:
+        items:
+          $ref: '#/definitions/controller.AttrArrModel'
+        type: array
+    type: object
+  controller.Response:
+    properties:
+      code:
+        type: integer
+      data:
+        type: object
+      message:
+        type: string
+    type: object
+  controller.TestProductGetModel:
+    properties:
+      id:
+        type: string
+    type: object
+  controller.TestProductQueryModel:
+    properties:
+      name:
+        type: string
+      text:
+        type: string
+    type: object
+  controller.UserCenterInfoModel:
+    properties:
+      orderWaitCount:
+        description: 待完成订单
+        type: integer
+      orderWaitPayCount:
+        description: 待支付订单
+        type: integer
+      productCollectionCount:
+        description: 收藏商品
+        type: integer
+    type: object
+  merchantService.GetMerchantInfoModel:
+    properties:
+      isWhereUserId:
+        type: boolean
+      merCode:
+        type: string
+      merId:
+        type: integer
+    type: object
+  merchantService.GetMerchantListModel:
+    properties:
+      computeDistance:
+        type: boolean
+      distance:
+        type: integer
+      lat:
+        type: number
+      lon:
+        type: number
+      sortType:
+        type: integer
+      text:
+        type: string
+    type: object
+  merchantService.MerInfoModel:
+    properties:
+      activeComment:
+        type: boolean
+      activeGoods:
+        type: boolean
+      activeService:
+        type: boolean
+      address:
+        type: MerAddressModel
+      businessTime:
+        type: MerBusinessTime
+      description:
+        type: string
+      id:
+        type: string
+      label:
+        additionalProperties:
+          type: string
+        type: object
+      logo:
+        type: MerResourceModel
+      name:
+        type: string
+      phones:
+        type: string
+      resources:
+        items:
+          type: MerResourceModel
+        type: array
+      typeId:
+        type: integer
+    required:
+    - resources
+    type: object
+  merchantService.MerchantAddressInfoModel:
+    properties:
+      description:
+        type: string
+      merId:
+        type: integer
+      merName:
+        type: string
+      phones:
+        type: string
+    type: object
+  merchantService.MerchantListModel:
+    properties:
+      description:
+        type: string
+      distance:
+        type: number
+      image:
+        type: string
+      latitude:
+        type: number
+      longitude:
+        type: number
+      merId:
+        type: integer
+      name:
+        type: string
+    type: object
+  merchantService.QueryMerchantAddressInfoListModel:
+    properties:
+      merIds:
+        items:
+          type: integer
+        type: array
+    type: object
+  model.Address:
+    properties:
+      active:
+        type: boolean
+      address:
+        type: string
+      city:
+        type: string
+      is_default:
+        type: boolean
+      name:
+        type: string
+      phone:
+        type: string
+      region:
+        type: string
+      remark:
+        type: string
+      town:
+        type: string
+      user_id:
+        type: integer
+    type: object
+  model.AppConfig:
+    properties:
+      categoryId:
+        type: integer
+      code:
+        type: string
+      configType:
+        type: integer
+      description:
+        type: string
+      linkType:
+        type: integer
+      linkUrl:
+        type: string
+      name:
+        type: string
+      productSmallInfos:
+        items:
+          $ref: '#/definitions/productService.ProductSmallInfoModel'
+        type: array
+      resourceId:
+        type: integer
+      sort:
+        type: integer
+      status:
+        type: integer
+      text:
+        type: string
+      type:
+        type: string
+    type: object
+  model.Category:
+    properties:
+      child:
+        items:
+          $ref: '#/definitions/model.Category'
+        type: array
+      isSystem:
+        type: boolean
+      merId:
+        type: integer
+      name:
+        type: string
+      pid:
+        type: integer
+      remark:
+        type: string
+      resourceId:
+        type: integer
+      sort:
+        type: integer
+      status:
+        type: integer
+    type: object
+  model.HomeProductConfig:
+    properties:
+      appConfigId:
+        type: integer
+      productId:
+        type: integer
+    type: object
+  model.Resource:
+    properties:
+      contentType:
+        type: string
+      ext:
+        type: string
+      fileName:
+        type: string
+      guid:
+        type: string
+      hashCode:
+        type: string
+      hosted:
+        type: string
+      iconUrl:
+        type: string
+      linkPoint:
+        type: string
+      merId:
+        type: integer
+      path:
+        type: string
+      size:
+        type: integer
+      thumbUrl:
+        type: string
+      type:
+        type: integer
+      url:
+        type: string
+      userId:
+        type: integer
+    type: object
+  model.User:
+    properties:
+      appKey:
+        type: string
+      avatarUrl:
+        type: string
+      gender:
+        type: integer
+      guid:
+        type: string
+      mobile:
+        type: string
+      status:
+        type: integer
+      type:
+        type: integer
+      userName:
+        type: string
+      wechatOpenId:
+        type: string
+    type: object
+  orderService.BefOrderInfo:
+    properties:
+      freeDeliveryFee:
+        type: boolean
+      merchants:
+        items:
+          type: BefOrderMerchantInfo
+        type: array
+    type: object
+  orderService.CancelUserOrderModel:
+    properties:
+      orderNo:
+        type: string
+    type: object
+  orderService.CreateOrderInfoModel:
+    properties:
+      addressId:
+        type: integer
+      deliveryFee:
+        type: number
+      deliveryTypeId:
+        type: integer
+      discounts:
+        items:
+          type: CreateOrderDiscountsModel
+        type: array
+      discountsAmountTotal:
+        type: number
+      orderAmountTotal:
+        type: number
+      paymentTypeId:
+        type: integer
+      productAmountTotal:
+        type: number
+      products:
+        items:
+          type: CreateOrderProductModel
+        type: array
+      remark:
+        type: string
+    required:
+    - deliveryTypeId
+    - orderAmountTotal
+    - paymentTypeId
+    - productAmountTotal
+    - products
+    type: object
+  orderService.GetBeforeOrderCreateInfoModel:
+    properties:
+      products:
+        items:
+          type: CreateOrderProductModel
+        type: array
+    required:
+    - products
+    type: object
+  orderService.GetOrderSmallInfoListModel:
+    properties:
+      all:
+        type: boolean
+      businessStatus:
+        items:
+          type: string
+        type: array
+      displayStatus:
+        type: integer
+      merId:
+        type: integer
+      orderNo:
+        type: string
+      userId:
+        type: integer
+    type: object
+  orderService.GetUserOrderDetailModel:
+    properties:
+      merId:
+        type: integer
+      orderNo:
+        type: string
+    type: object
+  orderService.SmallOrderInfModel:
+    properties:
+      _:
+        type: integer
+      createdTime:
+        type: string
+      merId:
+        type: integer
+      merName:
+        type: string
+      "no":
+        type: string
+      orderAmountTotal:
+        type: number
+      products:
+        items:
+          type: SmallOrderInfoProductModel
+        type: array
+      status:
+        type: string
+      statusText:
+        type: string
+      type:
+        type: integer
+    type: object
+  orderService.UserOrderDetailModel:
+    properties:
+      address:
+        type: UserOrderAddressModel
+      cancelTime:
+        type: string
+      createdTime:
+        type: string
+      deliveryType:
+        type: integer
+      discountsAmountTotal:
+        type: number
+      merId:
+        type: integer
+      merName:
+        type: string
+      "no":
+        type: string
+      orderAmountTotal:
+        type: number
+      originalAmountTotal:
+        type: number
+      payTypeText:
+        type: string
+      paymentTime:
+        type: string
+      products:
+        items:
+          type: SmallOrderInfoProductModel
+        type: array
+      remark:
+        type: string
+      status:
+        type: string
+      statusText:
+        type: string
+    type: object
+  orderService.UserOrderPayModel:
+    properties:
+      orderId:
+        type: integer
+      orderMasterId:
+        type: integer
+      orderMasterNo:
+        type: string
+      orderNo:
+        type: string
+      userId:
+        type: integer
+    type: object
+  paymentService.GetPaymentTypeListModel:
+    properties:
+      merId:
+        type: integer
+    type: object
+  productService.GetCategoryListModel:
+    properties:
+      id:
+        type: integer
+      isSystem:
+        type: boolean
+      merId:
+        type: integer
+      name:
+        type: string
+      pid:
+        type: integer
+      status:
+        type: integer
+    type: object
+  productService.GetCategoryProductListModel:
+    properties:
+      categoryId:
+        type: integer
+      distance:
+        type: integer
+      lat:
+        type: number
+      lon:
+        type: number
+      order:
+        type: integer
+    type: object
+  productService.GetProductDetailInfoSingleModel:
+    properties:
+      guid:
+        type: string
+      userId:
+        type: integer
+    type: object
+  productService.GetProductPaymentTypeListModel:
+    properties:
+      productId:
+        type: integer
+      userId:
+        type: integer
+    type: object
+  productService.GetProductSmallInfoListModel:
+    properties:
+      categoryId:
+        type: integer
+      computeDistance:
+        type: boolean
+      lat:
+        type: number
+      lon:
+        type: number
+      merId:
+        type: integer
+      name:
+        type: string
+      productIds:
+        items:
+          type: integer
+        type: array
+      type:
+        type: integer
+    type: object
+  productService.GetSearchProductListModel:
+    properties:
+      categoryId:
+        type: integer
+      distance:
+        type: integer
+      lat:
+        type: number
+      lon:
+        type: number
+      merId:
+        type: integer
+      sortType:
+        type: integer
+      text:
+        type: string
+    type: object
+  productService.GetUserProductCollectionListModel:
+    properties:
+      lat:
+        type: number
+      lon:
+        type: number
+      userId:
+        type: integer
+    type: object
+  productService.ProductDetailInfoSingle:
+    properties:
+      attributes:
+        items:
+          type: ProductAttributeModel
+        type: array
+      brand:
+        type: object
+      brandId:
+        type: integer
+      collected:
+        type: boolean
+      content:
+        type: string
+      currentPrice:
+        type: number
+      deliveryTypes:
+        items:
+          type: ProductDeliveryTypeModel
+        type: array
+      description:
+        type: string
+      guid:
+        type: string
+      image:
+        type: string
+      isSingle:
+        type: boolean
+      keywords:
+        type: string
+      maxPrice:
+        type: number
+      merCode:
+        type: string
+      merId:
+        type: integer
+      merInfo:
+        type: object
+      merName:
+        type: string
+      minPrice:
+        type: number
+      name:
+        type: string
+      originalPrice:
+        type: number
+      resources:
+        items:
+          type: ProductResourceModel
+        type: array
+      sales:
+        type: integer
+      skuInfo:
+        items:
+          type: ProductSKUDetailModel
+        type: array
+      status:
+        type: integer
+      statusText:
+        type: string
+      stock:
+        type: integer
+      tags:
+        items:
+          type: ProductTagsModel
+        type: array
+      typeId:
+        type: integer
+      typeName:
+        type: string
+    type: object
+  productService.ProductSmallInfoModel:
+    properties:
+      brand:
+        type: object
+      brandId:
+        type: integer
+      currentPrice:
+        type: number
+      description:
+        type: string
+      distance:
+        type: number
+      guid:
+        type: string
+      image:
+        type: string
+      keywords:
+        type: string
+      latitude:
+        type: number
+      longitude:
+        type: number
+      maxPrice:
+        type: number
+      merId:
+        type: integer
+      merName:
+        type: string
+      minPrice:
+        type: number
+      name:
+        type: string
+      originalPrice:
+        type: number
+      productType:
+        type: integer
+      sales:
+        type: integer
+      stock:
+        type: integer
+      tags:
+        type: string
+      typeId:
+        type: integer
+    type: object
+  productService.UserProductCollectionAddModel:
+    properties:
+      productCode:
+        type: string
+      userId:
+        type: integer
+    type: object
+  productService.UserProductCollectionRemoveModel:
+    properties:
+      productCode:
+        type: string
+      userId:
+        type: integer
+    type: object
+  searchService.QueryRecommendProductListModel:
+    properties:
+      categoryId:
+        type: integer
+      lat:
+        type: number
+      lon:
+        type: number
+      searchKey:
+        type: string
+      source:
+        type: integer
+      type:
+        type: integer
+      userId:
+        type: integer
+    type: object
+  shopCartService.AddShopCartItemModel:
+    properties:
+      merId:
+        type: integer
+      number:
+        type: integer
+      price:
+        type: number
+      productNo:
+        type: string
+      productSkuId:
+        type: integer
+      totalPrice:
+        type: number
+      userId:
+        type: integer
+    type: object
+  shopCartService.DeleteShopCartModel:
+    properties:
+      ids:
+        items:
+          type: integer
+        type: array
+      merId:
+        type: integer
+      userId:
+        type: integer
+    type: object
+  shopCartService.GetUserShopCartProductInfoModel:
+    properties:
+      userId:
+        type: integer
+    type: object
+  shopCartService.UserShopCartMerModel:
+    properties:
+      invalidProducts:
+        items:
+          type: UserShopCartProductModel
+        type: array
+      merCode:
+        type: string
+      merId:
+        type: integer
+      merName:
+        type: string
+      products:
+        items:
+          type: UserShopCartProductModel
+        type: array
+    type: object
+host: localhost:7001
+info:
+  contact:
+    email: support@swagger.io
+    name: API Support
+    url: http://www.swagger.io/support
+  description: This is a swag test http server.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: USER WEB API
+  version: "1.0"
+paths:
+  /address/create:
+    post:
+      consumes:
+      - application/json
+      description: 创建用户收获地址
+      parameters:
+      - description: body参数
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/model.Address'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok" "返回信息
+          schema:
+            allOf:
+            - $ref: '#/definitions/controller.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/model.Address'
+              type: object
+        "400":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "401":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "500":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+      security:
+      - ApiKeyAuth: []
+      summary: 创建用户收获地址
+  /address/getList:
+    get:
+      consumes:
+      - application/json
+      description: 获取全部地址列表
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok" "返回信息
+          schema:
+            allOf:
+            - $ref: '#/definitions/controller.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/model.Address'
+              type: object
+        "400":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "401":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "500":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+      summary: 获取全部地址列表
+  /address/save:
+    post:
+      consumes:
+      - application/json
+      description: 保存用户收获地址
+      parameters:
+      - description: body参数
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/model.Address'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok" "返回信息
+          schema:
+            allOf:
+            - $ref: '#/definitions/controller.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/model.Address'
+              type: object
+        "400":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "401":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "500":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+      summary: 保存用户收获地址
+  /address/user/delete:
+    post:
+      consumes:
+      - application/json
+      description: 删除用户收获地址
+      parameters:
+      - description: body参数
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/addressService.DeleteAddressModel'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok" "返回信息
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "400":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "401":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "500":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+      summary: 删除用户收获地址
+  /address/user/first:
+    post:
+      consumes:
+      - application/json
+      description: 获取用户收获地址(默认第一个)
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok" "返回信息
+          schema:
+            allOf:
+            - $ref: '#/definitions/controller.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/model.Address'
+              type: object
+        "400":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "401":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "500":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+      summary: 获取用户收获地址(默认第一个)
+  /address/user/getList:
+    get:
+      consumes:
+      - application/json
+      description: 获取用户收获地址列表
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok" "返回信息
+          schema:
+            allOf:
+            - $ref: '#/definitions/controller.Response'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/model.Address'
+                  type: array
+              type: object
+        "400":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "401":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "500":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+      summary: 获取用户收获地址列表
+  /category/get/list:
+    get:
+      consumes:
+      - application/json
+      description: 获取商品分类列表
+      parameters:
+      - description: body参数
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/productService.GetCategoryListModel'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok" "返回信息
+          schema:
+            allOf:
+            - $ref: '#/definitions/controller.Response'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/model.Category'
+                  type: array
+              type: object
+        "400":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "401":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "500":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+      summary: 获取商品分类列表
+  /category/product/list:
+    get:
+      consumes:
+      - application/json
+      description: 描述
+      parameters:
+      - description: body参数
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/productService.GetCategoryProductListModel'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok" "返回信息
+          schema:
+            allOf:
+            - $ref: '#/definitions/controller.Response'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/productService.ProductSmallInfoModel'
+                  type: array
+              type: object
+        "400":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "401":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "500":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+      summary: 简单描述
+  /home/banner/getList:
+    get:
+      consumes:
+      - application/json
+      description: 获取首页Banner列表 (TODO：返回参数)
+      parameters:
+      - description: body参数
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/appConfigService.GetBannerListModel'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok" "返回信息
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "400":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "401":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "500":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+      summary: 获取首页Banner列表
+  /home/config/list:
+    get:
+      consumes:
+      - application/json
+      description: app 配置比如首页分类相关等配置
+      parameters:
+      - description: body参数
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/appConfigService.GetAppConfigListModel'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok" "返回信息
+          schema:
+            allOf:
+            - $ref: '#/definitions/controller.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/controller.GetAppConfigListResponseModel'
+              type: object
+        "400":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "401":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "500":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+      summary: 获取app配置列表
+  /home/config/product/list:
+    get:
+      consumes:
+      - application/json
+      description: 获取首页配置产品信息列表
+      parameters:
+      - description: body参数
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/appConfigService.GetHomeConfigProductInfoModel'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok" "返回信息
+          schema:
+            allOf:
+            - $ref: '#/definitions/controller.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/productService.ProductSmallInfoModel'
+              type: object
+        "400":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "401":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "500":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+      summary: 获取首页配置产品信息列表
+  /home/productConfig/getList:
+    get:
+      consumes:
+      - application/json
+      description: 获取首页产品配置列表
+      parameters:
+      - description: body参数
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/appConfigService.GetHomeProductConfigListModel'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok" "返回信息
+          schema:
+            allOf:
+            - $ref: '#/definitions/controller.Response'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/model.HomeProductConfig'
+                  type: array
+              type: object
+        "400":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "401":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "500":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+      summary: 获取首页产品配置列表
+  /hot/search/get:
+    get:
+      consumes:
+      - application/json
+      description: 描述
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok" "返回信息
+          schema:
+            allOf:
+            - $ref: '#/definitions/controller.Response'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/controller.GetSearchHotListModel'
+                  type: array
+              type: object
+        "400":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "401":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "500":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+      summary: 简单描述
+  /mer/addresses:
+    post:
+      consumes:
+      - application/json
+      description: 获取商户地址信息
+      parameters:
+      - description: body参数
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/merchantService.QueryMerchantAddressInfoListModel'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok" "返回信息
+          schema:
+            allOf:
+            - $ref: '#/definitions/controller.Response'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/merchantService.MerchantAddressInfoModel'
+                  type: array
+              type: object
+        "400":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "401":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "500":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+      summary: 获取商户地址信息
+  /mer/list/search:
+    post:
+      consumes:
+      - application/json
+      description: 获取商户列表
+      parameters:
+      - description: body参数
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/merchantService.GetMerchantListModel'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok" "返回信息
+          schema:
+            allOf:
+            - $ref: '#/definitions/controller.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/merchantService.MerchantListModel'
+              type: object
+        "400":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "401":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "500":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+      summary: 获取商户列表
+  /mer/product/get/list:
+    get:
+      consumes:
+      - application/json
+      description: 获取商品列表
+      parameters:
+      - description: body参数
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/controller.GetMerProductInfoListModel'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok" "返回信息
+          schema:
+            allOf:
+            - $ref: '#/definitions/controller.Response'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/productService.ProductSmallInfoModel'
+                  type: array
+              type: object
+        "400":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "401":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "500":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+      summary: 获取商品列表
+  /mer/shopQRCode/get:
+    post:
+      consumes:
+      - application/json
+      description: 描述
+      parameters:
+      - description: body参数
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/controller.GetMerchantShopQRCodeModel'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok" "返回信息
+          schema:
+            allOf:
+            - $ref: '#/definitions/controller.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/controller.GetMerchantShopQRCodeModel'
+              type: object
+        "400":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "401":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "500":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+      summary: 获取商户店铺二维码
+  /merchant/get:
+    get:
+      consumes:
+      - application/json
+      description: 获取商户信息
+      parameters:
+      - description: body参数
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/merchantService.GetMerchantInfoModel'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok" "返回信息
+          schema:
+            allOf:
+            - $ref: '#/definitions/controller.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/merchantService.MerInfoModel'
+              type: object
+        "400":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "401":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "500":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+      summary: 获取商户信息
+  /order/befCreate:
+    post:
+      consumes:
+      - application/json
+      description: (失效接口)
+      parameters:
+      - description: body参数
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/orderService.GetBeforeOrderCreateInfoModel'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok" "返回信息
+          schema:
+            allOf:
+            - $ref: '#/definitions/controller.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/orderService.BefOrderInfo'
+              type: object
+        "400":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "401":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "500":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+      summary: (失效接口)
+  /order/cancel:
+    post:
+      consumes:
+      - application/json
+      description: '根据订单号取消订单 TODO: 逻辑待补充'
+      parameters:
+      - description: body参数
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/orderService.CancelUserOrderModel'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok" "返回信息
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "400":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "401":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "500":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+      summary: 取消订单
+  /order/create:
+    post:
+      consumes:
+      - application/json
+      description: 创建用户订单
+      parameters:
+      - description: body参数
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/orderService.CreateOrderInfoModel'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok" "返回信息
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "400":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "401":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "500":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+      summary: 创建用户订单
+  /order/get/detail:
+    get:
+      consumes:
+      - application/json
+      description: 脚本自动执行
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok" "返回信息
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "400":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "401":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "500":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+      summary: 超时未支付订单取消
+  /order/get/list:
+    get:
+      consumes:
+      - application/json
+      description: 获取用户订单列表
+      parameters:
+      - description: body参数
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/orderService.GetOrderSmallInfoListModel'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok" "返回信息
+          schema:
+            allOf:
+            - $ref: '#/definitions/controller.Response'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/orderService.SmallOrderInfModel'
+                  type: array
+              type: object
+        "400":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "401":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "500":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+      summary: 获取用户订单列表
+  /order/pay:
+    post:
+      consumes:
+      - application/json
+      description: 这个步骤在创建订单以后，订单支付 成功后会返回数据到微信小程序，
+      parameters:
+      - description: body参数
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/orderService.UserOrderPayModel'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok" "返回信息
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "400":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "401":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "500":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+      summary: 订单支付
+  /product/search:
+    post:
+      consumes:
+      - application/json
+      description: 描述
+      parameters:
+      - description: body参数
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/productService.GetSearchProductListModel'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok" "返回信息
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "400":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "401":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "500":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+      summary: 简单描述
+  /recommend/product/list:
+    post:
+      consumes:
+      - application/json
+      description: 推荐基本逻辑
+      parameters:
+      - description: body参数
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/searchService.QueryRecommendProductListModel'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok" "返回信息
+          schema:
+            allOf:
+            - $ref: '#/definitions/controller.Response'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/productService.ProductSmallInfoModel'
+                  type: array
+              type: object
+        "400":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "401":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "500":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+      summary: 推荐商品列表
+  /resource/uploadFiles:
+    post:
+      consumes:
+      - multipart/form-data
+      description: 上传文件资源 支持 图片和视频 资源
+      parameters:
+      - description: array files
+        in: formData
+        name: file
+        required: true
+        type: file
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok" "返回信息
+          schema:
+            allOf:
+            - $ref: '#/definitions/controller.Response'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/model.Resource'
+                  type: array
+              type: object
+        "400":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "401":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "500":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+      summary: 上传文件资源 支持 图片和视频 资源
+  /search/get:
+    get:
+      consumes:
+      - application/json
+      description: ES搜索产品获取
+      parameters:
+      - description: body参数
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/controller.TestProductGetModel'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok" "返回信息
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "400":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "401":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "500":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+      summary: ES搜索产品获取
+  /search/query:
+    get:
+      consumes:
+      - application/json
+      description: ES产品查询
+      parameters:
+      - description: body参数
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/controller.TestProductQueryModel'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok" "返回信息
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "400":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "401":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "500":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+      summary: ES产品查询
+  /search/sync:
+    get:
+      consumes:
+      - application/json
+      description: 描述
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok" "返回信息
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "400":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "401":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "500":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+      summary: 搜索产品同步
+  /shop/cart/add:
+    post:
+      consumes:
+      - application/json
+      description: 商品添加购物车
+      parameters:
+      - description: body参数
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/shopCartService.AddShopCartItemModel'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok" "返回信息
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "400":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "401":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "500":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+      summary: 商品添加购物车
+  /shop/cart/get:
+    get:
+      consumes:
+      - application/json
+      description: 获取购物车商品信息
+      parameters:
+      - description: body参数
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/shopCartService.GetUserShopCartProductInfoModel'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok" "返回信息
+          schema:
+            allOf:
+            - $ref: '#/definitions/controller.Response'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/shopCartService.UserShopCartMerModel'
+                  type: array
+              type: object
+        "400":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "401":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "500":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+      summary: 获取购物车商品信息
+  /shop/cart/remove:
+    post:
+      consumes:
+      - application/json
+      description: 购物车商品删除
+      parameters:
+      - description: body参数
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/shopCartService.DeleteShopCartModel'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok" "返回信息
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "400":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "401":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "500":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+      summary: 购物车商品删除
+  /shop/collection/add:
+    post:
+      consumes:
+      - application/json
+      description: 收藏商品
+      parameters:
+      - description: body参数
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/productService.UserProductCollectionAddModel'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok" "返回信息
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "400":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "401":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "500":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+      summary: 收藏商品
+  /shop/collection/get:
+    get:
+      consumes:
+      - application/json
+      description: 获取用户收藏商品列表
+      parameters:
+      - description: body参数
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/productService.GetUserProductCollectionListModel'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok" "返回信息
+          schema:
+            allOf:
+            - $ref: '#/definitions/controller.Response'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/productService.ProductSmallInfoModel'
+                  type: array
+              type: object
+        "400":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "401":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "500":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+      summary: 获取用户收藏商品列表
+  /shop/collection/remove:
+    post:
+      consumes:
+      - application/json
+      description: 删除收藏商品
+      parameters:
+      - description: body参数
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/productService.UserProductCollectionRemoveModel'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok" "返回信息
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "400":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "401":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "500":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+      summary: 删除收藏商品
+  /shop/payment/type/list:
+    post:
+      consumes:
+      - application/json
+      description: 描述
+      parameters:
+      - description: body参数
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/paymentService.GetPaymentTypeListModel'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok" "返回信息
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "400":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "401":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "500":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+      summary: 简单描述
+  /shop/product/detail:
+    get:
+      consumes:
+      - application/json
+      description: 获取 单个商品详情 商品详细信息
+      parameters:
+      - description: body参数
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/productService.GetProductDetailInfoSingleModel'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok" "返回信息
+          schema:
+            allOf:
+            - $ref: '#/definitions/controller.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/productService.ProductDetailInfoSingle'
+              type: object
+        "400":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "401":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "500":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+      summary: 获取 单个商品详情 商品详细信息
+  /shop/product/info/getList:
+    get:
+      consumes:
+      - application/json
+      description: 用户商品列表展示使用
+      parameters:
+      - description: body参数
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/productService.GetProductSmallInfoListModel'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok" "返回信息
+          schema:
+            allOf:
+            - $ref: '#/definitions/controller.Response'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/productService.ProductSmallInfoModel'
+                  type: array
+              type: object
+        "400":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "401":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "500":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+      summary: 获取商品信息列表
+  /shop/product/payment/type/list:
+    get:
+      consumes:
+      - application/json
+      description: 获取商品支付方式
+      parameters:
+      - description: body参数
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/productService.GetProductPaymentTypeListModel'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok" "返回信息
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "400":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "401":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "500":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+      summary: 获取商品支付方式
+  /user/center/get:
+    get:
+      consumes:
+      - application/json
+      description: 获取用户个人中心信息
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok" "返回信息
+          schema:
+            allOf:
+            - $ref: '#/definitions/controller.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/controller.UserCenterInfoModel'
+              type: object
+        "400":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "401":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "500":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+      summary: 获取用户个人中心信息
+  /user/person/login:
+    post:
+      consumes:
+      - application/json
+      description: 微信登陆
+      parameters:
+      - description: body参数
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/controller.LoginRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok" "返回信息
+          schema:
+            allOf:
+            - $ref: '#/definitions/controller.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/model.User'
+              type: object
+        "400":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "401":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "500":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+      summary: 微信登陆
+  /wechat/getHomeData:
+    get:
+      consumes:
+      - application/json
+      description: 待确定
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok" "返回信息
+          schema:
+            allOf:
+            - $ref: '#/definitions/controller.Response'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/model.AppConfig'
+                  type: array
+              type: object
+        "400":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "401":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "500":
+          description: 错误
+          schema:
+            $ref: '#/definitions/controller.Response'
+      summary: 获取首页 hometba 配置
+schemes:
+- http
+- https
+securityDefinitions:
+  ApiKeyAuth:
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"
+x-example-key:
+  key: value
